@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternVision Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="img/internvision.png" type="img/x-icon">
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .payment-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .secure-icon {
+            color: #28a745;
+            font-size: 2rem;
+        }
+        @media (max-width: 576px) {
+            .payment-container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            .btn-primary {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container payment-container">
+        <div class="text-center mb-4">
+            <h2>Complete Your Payment</h2>
+            <p class="text-muted">Secure your course by completing the payment process.</p>
+            <i class="fas fa-lock secure-icon"></i>
+            <p class="text-success">Secure Payment Gateway</p>
+        </div>
+        <form>
+            <div class="mb-3">
+                <label for="nameOnCard" class="form-label">Name on Card</label>
+                <input type="text" class="form-control" id="nameOnCard" placeholder="Enter name on your card" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardNumber" class="form-label">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9101 1121" required>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="expiryDate" class="form-label">Expiry Date</label>
+                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="password" class="form-control" id="cvv" placeholder="123" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">Pay Now</button>
+            </div>
+        </form>
+        <div class="text-center mt-4">
+            <p class="text-muted">By clicking "Pay Now," you agree to our <a href="#">Terms & Conditions</a>.</p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
