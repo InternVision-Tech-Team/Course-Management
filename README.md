@@ -25,14 +25,14 @@ Welcome to the official repository of ** EduSmart Learning Website**'s website! 
 
 ## 📂 Project Structure  
 ```
-InternVision.Tech/
+courseapp/
 ├── courseapp/                # Main Django project folder (contains settings, urls, etc.)
 │   ├── __init__.py
 │   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── internvision/             # Django application (contains views, models, etc.)
+├── edusmart/                 # Django application for course management
 │   ├── migrations/           # Database migrations
 │   ├── templates/            # HTML templates
 │   │   ├── base.html         # Base layout
