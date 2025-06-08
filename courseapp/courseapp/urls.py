@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from courseapp.views import aboutus
+from courseapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('aboutus/', aboutus, name='aboutus'),
+    path('', views.homepage, name='homepage'),
+    path('about-us/', views.aboutus, name='about-us'),
+    path('courses/', views.courses, name='courses'),
+    path('course/<int:course_id>/', views.course_detail, name='course-detail'), #dynamic URL for course detail
 ]
+
