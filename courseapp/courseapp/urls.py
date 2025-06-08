@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from courseapp.views import aboutus
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('aboutus/', aboutus, name='aboutus'),
 ]
