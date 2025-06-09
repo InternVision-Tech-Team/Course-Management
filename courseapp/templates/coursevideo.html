@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Access Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        video {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 8px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Course Video Access</h1>
+        <p>Please enter the key to access the course video.</p>
+        <div class="input-group">
+            <label for="accessKey">Enter Access Key:</label>
+            <input type="password" id="accessKey" placeholder="Enter your course key">
+        </div>
+        <button class="btn" onclick="validateKey()">Unlock Video</button>
+        <p id="errorMsg" class="error"></p>
+        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Jrssz9bl9gNuScaN" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+       </iframe>
+
+
+        <video id="courseVideo" controls>
+            <source src="https://youtu.be/cmMiyZaSELo?si=-mYF9IeWcpYEB6f6">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // Predefined key for the course
+        const courseKey = "12345";
+
+        function validateKey() {
+            const userKey = document.getElementById("accessKey").value;
+            const errorMsg = document.getElementById("errorMsg");
+            const video = document.getElementById("courseVideo");
+
+            if (userKey === courseKey) {
+                errorMsg.textContent = "";
+                video.style.display = "block"; // Show the video
+            } else {
+                errorMsg.textContent = "Invalid key! Please try again.";
+                video.style.display = "none"; // Hide the video
+            }
+        }
+    </script>
+</body>
+</html>
