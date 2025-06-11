@@ -5,7 +5,7 @@ def homepage(request):
     data={
         'title': 'home page'
     }
-    return render(request, 'index.html',data)  # You must have templates/index.html
+    return render(request, 'index.html',data)   # You must have templates/index.html
 
 def aboutus(request):
     return render(request, 'contact.html')  
