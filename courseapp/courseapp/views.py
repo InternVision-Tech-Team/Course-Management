@@ -5,7 +5,7 @@ def homepage(request):
     return render(request,'index.html')   # You must have templates/index.html
 
 def aboutus(request):
-    return render(request, 'contact.html')  
+    return render(request, 'base.html')  
 
 def courses(request):
     return HttpResponse("This is the courses page.")
