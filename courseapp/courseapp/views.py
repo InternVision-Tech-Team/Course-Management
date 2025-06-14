@@ -31,6 +31,9 @@ def priceplan(request):
 def wishlist(request):
     return render(request,'wishlist.html')
 
+def course(request):
+    return render(request,'course.html')
+
 # def xyz(request):
 #     return HttpResponse("this is XYZ page")  # This is just a exmplae to show, is we want to see a page with only text , write this code
 
