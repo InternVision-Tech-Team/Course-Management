@@ -22,6 +22,9 @@ def contact(request):
 def instructors(request):
     return render(request, 'instructors.html')
 
+def cart (request):
+    return render(request,'cart.html')
+
 def priceplan(request):
     return render(request,'priceplan.html')
 
