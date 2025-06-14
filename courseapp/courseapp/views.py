@@ -7,8 +7,27 @@ def homepage(request):
 def aboutus(request):
     return render(request,'base.html')  
 
-def courses(request):
-    return HttpResponse("This is the courses page.")
-
 def course_detail(request, course_id):
     return HttpResponse(course_id)
+
+def account(request):
+    return render(request, 'account.html')  
+
+def faqs(request):
+    return render(request,'faqs.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def instructors(request):
+    return render(request, 'instructors.html')
+
+def priceplan(request):
+    return render(request,'priceplan.html')
+
+def wishlist(request):
+    return render(request,'wishlist.html')
+
+# def xyz(request):
+#     return HttpResponse("this is XYZ page")  # This is just a exmplae to show, is we want to see a page with only text , write this code
+
