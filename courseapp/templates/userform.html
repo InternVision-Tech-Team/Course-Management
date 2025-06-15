@@ -1,0 +1,29 @@
+{% include "header.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">User Form</h2>
+    <form method="post" >
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="mb-3"> 
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>   
+        </div>
+        <input type="text" value={{output}} >
+
+    </form> 
+</div>
+
+        
+
+{% endblock %}
+
+{% include "footer.html" %}

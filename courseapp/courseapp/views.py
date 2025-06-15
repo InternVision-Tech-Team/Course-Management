@@ -37,3 +37,13 @@ def course(request):
 # def xyz(request):
 #     return HttpResponse("this is XYZ page")  # This is just a exmplae to show, is we want to see a page with only text , write this code
 
+def userform(request):
+    ans=0
+    try:
+        if request.method == 'POST':
+         n1=int(request.POST['username'])
+         n2=int(request.POST['password'])
+         ans=n1 + n2 # This will print the username and password in the console
+    except Exception as e:
+        pass
+    return render(request,'userform.html',{'output':ans})

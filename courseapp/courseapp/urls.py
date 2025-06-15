@@ -33,6 +33,7 @@ urlpatterns = [
     path('wishlist/', views.wishlist, name='wishlist'),
     #COURSES
     path('course/',views.course, name='course'),  
+    path('userform/', views.userform, name='userform'),
 
 ]
 
