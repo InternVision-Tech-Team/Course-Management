@@ -1,5 +1,7 @@
-{% include "header.html" %}
-  <section id="hero">
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="hero">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 col-lg-3 offset-md-2 padding-large ps-lg-0 pe-lg-5">
@@ -18,7 +20,7 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-7 d-block d-md-none d-lg-block p-0">
-          <img src="/images/billboard-img.jpg" alt="img" class="img-fluid">
+          <img src="/static/images/billboard-img.jpg" alt="img" class="img-fluid">
         </div>
       </div>
     </div>
@@ -63,7 +65,11 @@
             <div>
               <iconify-icon class="service-icon fs-1" icon="mdi:virtual-meeting"></iconify-icon>
             </div>
+<<<<<<< HEAD
 <h1>Update for testing</h1>
+=======
+<h1> Update for testing</h1>
+>>>>>>> 1f0fd601492b57c473db226a6280520f98d2e287
             <div class="ps-3">
               <h4 class="py-2 m-0">Learn Courses Online</h4>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sint dolores cupiditate, commodi
@@ -644,4 +650,4 @@
 
 
   </section>
-{% include "footer.html" %}
+{% endblock %} 
