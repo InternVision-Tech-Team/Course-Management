@@ -34,6 +34,7 @@ urlpatterns = [
     #COURSES
     path('course/',views.course, name='course'),  
     path('userform/', views.userform, name='userform'),
+    path('submitform/',views.submitform,name='submitform'),
 
 ]
 
