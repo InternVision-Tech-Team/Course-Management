@@ -23,7 +23,7 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     #PAGES
     path('about-us/', views.aboutus, name='about-us'),
-    path('course/<int:course_id>/', views.course_detail, name='course-detail'), #dynamic URL for course detail
+    path('course/', views.course, name='course'), #dynamic URL for course detail
     path('account/', views.account, name='account'),
     path('contact-us/',views.contact, name='contact'),
     path('faqs/', views.faqs, name='faqs'),
@@ -33,6 +33,7 @@ urlpatterns = [
     path('wishlist/', views.wishlist, name='wishlist'),
     #COURSES
     path('course/',views.course, name='course'),  
+    path('blog/',views.blog , name='blog'),
 
 ]
 

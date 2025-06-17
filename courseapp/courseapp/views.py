@@ -7,8 +7,8 @@ def homepage(request):
 def aboutus(request):
     return render(request, 'base.html')
 
-def course_detail(request, course_id):
-    return HttpResponse(f"Course ID: {course_id}")
+def course(request):
+    return render(request, 'course.html')
 
 def account(request):
     return render(request, 'account.html')
@@ -33,4 +33,7 @@ def wishlist(request):
 
 def course(request):
     return render(request, 'course.html')
+
+def blog (request):
+    return render(request,'blog.html')
 
