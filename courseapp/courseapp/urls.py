@@ -34,7 +34,7 @@ urlpatterns = [
     #COURSES
     path('course/',views.course, name='course'),  
     path('blog/',views.blog , name='blog'),
-    path('thank-you/', views.thankyou, name="thankyou"),
+    path('thankyou/', views.thankyou, name="thankyou"),
 
 ]
 

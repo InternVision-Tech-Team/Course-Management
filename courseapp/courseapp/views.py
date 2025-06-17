@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .models import Contact  
 
 def homepage(request):
     return render(request, 'index.html')
@@ -19,14 +20,15 @@ def faqs(request):
 
 def contact(request):
     if request.method == "POST":
-        
         name = request.POST.get("name")
         email = request.POST.get("email")
         message = request.POST.get("message")
 
-        # You can save this to a database or send an email here
+        # ✅ Save to database using the correct model name
+        Contact.objects.create(name=name, email=email, message=message)
+
         messages.success(request, "Thanks for contacting us!")
-        return redirect("thankyou")  # Redirect to another page
+        return redirect("thankyou")
 
     return render(request, "contact.html")
 
@@ -42,12 +44,8 @@ def priceplan(request):
 def wishlist(request):
     return render(request, 'wishlist.html')
 
-def course(request):
-    return render(request, 'course.html')
+def blog(request):
+    return render(request, 'blog.html')
 
-def blog (request):
-    return render(request,'blog.html')
-
-def thankyou (request):
-    return render(request,'thankyou.html')
-
+def thankyou(request):
+    return render(request, 'thankyou.html')
