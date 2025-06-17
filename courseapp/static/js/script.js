@@ -83,14 +83,13 @@
     var thumb_slider = new Swiper(".product-thumbnail-slider", {
       loop: true,
       slidesPerView: 3,
-      autoplay: true,
       direction: "vertical",
       spaceBetween: 10,
-      peed: 500,
+      speed: 500,
       autoplay: {
       delay: 1000,
       disableOnInteraction: false,
-      }
+      },
     });
 
     var large_slider = new Swiper(".product-large-slider", {
