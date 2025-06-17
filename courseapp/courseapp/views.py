@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from.forms import UserForm
 
 def homepage(request):
     return render(request, 'index.html')
@@ -35,13 +36,15 @@ def course(request):
     return render(request, 'course.html')
 
 def userform(request):
-    data = {}
+    data = {'form':fn}
+    fn= UserForm()
     if request.method == 'POST':
         try:
             n1 = int(request.POST.get('username', 0))
             n2 = int(request.POST.get('password', 0))
             ans = n1 + n2
             data = {
+                'form':fn,
                 'n1': n1,
                 'n2': n2,
                 'output': ans
