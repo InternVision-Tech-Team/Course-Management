@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 def homepage(request):
     return render(request, 'index.html')
 
-def aboutus(request):
+def about_us(request):
     return render(request, 'base.html')
 
 def course_detail(request, course_id):

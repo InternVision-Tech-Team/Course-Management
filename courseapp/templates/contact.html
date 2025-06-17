@@ -1,7 +1,260 @@
-{% include "header.html" %}
-
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us - Learning Platform</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif, 'Roboto', sans-serif;
+    background :rgb(203, 166, 98);
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+
+  /* Container max width and padding */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    flex: 1;
+  }
+
+  /* Main Content Layout */
+  main {
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+  .contact-wrapper {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  /* Responsive Layout */
+  @media (max-width: 1024px) {
+    .contact-wrapper {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  /* Contact Form */
+  .contact-form {
+    flex: 2;
+    background: white;
+    padding: 32px 36px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.05);
+  }
+  .contact-form h2 {
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #1e293b;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #334155;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #cbd5e1;
+    background: #f8fafc;
+    transition: border-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    min-height: 44px;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: #fff;
+    box-shadow: 0 0 8px rgb(59 130 246 / 0.35);
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  /* Button */
+  button[type="submit"] {
+    align-self: flex-start;
+    padding: 14px 36px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 20px rgb(37 99 235 / 0.3);
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-2px);
+  }
+
+  /* Sidebar contact info */
+  .contact-info {
+    flex: 1;
+    background: white;
+    padding: 32px 36px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .contact-info h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+  }
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #334155;
+    font-size: 1rem;
+  }
+  .info-icon {
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Footer */
+  footer {
+    background: #1e293b;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    padding: 24px 0;
+    text-align: center;
+  }
+  footer a {
+    color: #60a5fa;
+    margin-left: 6px;
+  }
+</style>
+</head>
+<body>
+
+<main class="container" role="main">
+  <section class="contact-wrapper" aria-label="Contact us section">
+    <article class="contact-form" aria-labelledby="contactFormTitle">
+      <h2 id="contactFormTitle">Contact Us</h2>
+      <form id="contactForm" novalidate>
+        <div>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameHelp" autocomplete="name" />
+          <small id="nameHelp" class="sr-only">Enter your full name</small>
+        </div>
+
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailHelp" autocomplete="email" />
+          <small id="emailHelp" class="sr-only">Enter your email</small>
+        </div>
+
+        <div>
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required aria-required="true" autocomplete="off" />
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required aria-required="true" aria-describedby="messageHelp"></textarea>
+          <small id="messageHelp" class="sr-only">Type your message here</small>
+        </div>
+
+        <button type="submit" aria-label="Send message">Send Message</button>
+      </form>
+    </article>
+  </section>
+</main>
+
+<script>
+  // Form validation and submission simulation
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const subject = form.subject.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name) {
+      alert('Please enter your full name.');
+      form.name.focus();
+      return;
+    }
+    if (!email || !email.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/)) {
+      alert('Please enter a valid email address.');
+      form.email.focus();
+      return;
+    }
+    if (!subject) {
+      alert('Please enter a subject.');
+      form.subject.focus();
+      return;
+    }
+    if (!message) {
+      alert('Please enter your message.');
+      form.message.focus();
+      return;
+    }
+
+    // Simulate successful submission
+    alert('Thank you for contacting us! We will get back to you shortly.');
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
 
 {% endblock %}
 
-{% include "footer.html" %}
