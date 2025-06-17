@@ -6,8 +6,9 @@
 
     <form method="post" action="{% url 'submitform' %}">
         {% csrf_token %}
+        {{ form }}
         
-        <div class="mb-3">
+        {% comment %} <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" name="username" id="username" required>
         </div>
@@ -15,7 +16,7 @@
         <div class="mb-3"> 
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="password" required>
-        </div>
+        </div> {% endcomment %}
 
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Submit</button>   
