@@ -88,7 +88,22 @@ Before first run, apply migrations:
 python manage.py migrate
 
 ```
+ You will Face the problem in __pycache__ while commiting your work , the reason is , when you are trying to push your work or commit your work to repo, this whill hit error of not saved your work, because this files changes continuosly to it will better to tell git that you have to ignore this file and commit other works.
 
+ Following steps will shows how will you achieve this:
+ 1. Add __pycache__/ to .gitignore
+ : echo __pycache__/ >> .gitignore
+2. Remove pycache from Git tracking
+: git rm --cached -r courseapp/courseapp/__pycache__/
+3. Commit the change
+: git add .gitignore
+: git commit -m "Ignore __pycache__ files"
+4. Check status again
+: git status
+
+Just copy paste the commands in cmd. 
+
+Now git will ignore this files and commit other remaining works.   
 ---
 
 ## 🖼️ Screenshots  
