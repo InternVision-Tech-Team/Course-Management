@@ -73,6 +73,10 @@
         el: ".swiper-pagination",
         clickable: true,
       },
+      autoplay: {
+      delay: 1000, // 1 second delay
+      disableOnInteraction: false,
+  },
     });
 
     // product single page
@@ -82,6 +86,11 @@
       autoplay: true,
       direction: "vertical",
       spaceBetween: 10,
+      peed: 500,
+      autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+      }
     });
 
     var large_slider = new Swiper(".product-large-slider", {
