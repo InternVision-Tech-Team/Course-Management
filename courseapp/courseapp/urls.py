@@ -35,6 +35,11 @@ urlpatterns = [
     path('course/',views.course, name='course'),  
     path('blog/',views.blog , name='blog'),
     path('thankyou/', views.thankyou, name="thankyou"),
+    path('course-detail/',views.coursedetail , name='coursedetail'),
+    path('event/',views.event , name='event'),
+    path('event-detail/',views.eventdetail , name='eventdetail'),
+    path('single-post/',views.singlepost , name='singlepost'),
+    
 
 ]
 

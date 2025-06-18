@@ -12,6 +12,9 @@ def aboutus(request):
 def course(request):
     return render(request, 'course.html')
 
+def coursedetail(request):
+    return render(request, 'coursedetail.html')
+
 def account(request):
     return render(request, 'account.html')
 
@@ -49,3 +52,12 @@ def blog(request):
 
 def thankyou(request):
     return render(request, 'thankyou.html')
+
+def event(request):
+    return render(request, 'event.html')
+
+def eventdetail(request):
+    return render(request, 'eventdetail.html')
+
+def singlepost(request):
+    return render(request, 'singlepost.html')
