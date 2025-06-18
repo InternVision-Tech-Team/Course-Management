@@ -7,7 +7,7 @@ def homepage(request):
     return render(request, 'index.html')
 
 def aboutus(request):
-    return render(request, 'base.html')
+    return render(request, 'aboutus.html')
 
 def course(request):
     return render(request, 'course.html')

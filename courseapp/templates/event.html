@@ -2,6 +2,40 @@
 
 {% block content %}
 
+<div class="container mt-5 pt-5">
+    <h2>Event Registration</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" name="name" id="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" name="email" id="email" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="event" class="form-label">Select Event</label>
+            <select class="form-control" name="event" id="event" required>
+                <option value="">Choose...</option>
+                <option value="webinar">Webinar on Django</option>
+                <option value="ai">AI Bootcamp</option>
+                <option value="cybersecurity">Cybersecurity Workshop</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Additional Message (Optional)</label>
+            <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+
 {% endblock %}
 
 {% include "footer.html" %}
