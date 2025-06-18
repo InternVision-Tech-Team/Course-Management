@@ -1,7 +1,60 @@
-{% include "header.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5 pt-5">
+      <h2 class="fw-bold">Shop</h2>
+      <p class="text-muted">Browse and buy our premium courses, books, and bundles.</p>
+    </div>
 
+    <div class="row g-4">
+
+      <!-- Example product card (Repeat for each product) -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="{% static 'images/python.png' %}" class="card-img-top" alt="Python Course">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Master Python Programming</h5>
+            <p class="text-muted">Beginner to advanced in one course. Includes projects and certification.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">₹999</span>
+              <a href="{% url 'cart' %}" class="btn btn-outline-success btn-sm">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="{% static 'images/django.png' %}" class="card-img-top" alt="Django Book">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Django Fullstack Guide (eBook)</h5>
+            <p class="text-muted">Comprehensive guide to Django web development with real-world projects.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">₹499</span>
+              <a href="{% url 'cart' %}" class="btn btn-outline-success btn-sm">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="{% static 'images/uiux.png' %}" class="card-img-top" alt="UI/UX Course">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">UI/UX Design Bootcamp</h5>
+            <p class="text-muted">Design modern, user-friendly interfaces. Great for beginners & professionals.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">₹799</span>
+              <a href="{% url 'cart' %}" class="btn btn-outline-success btn-sm">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 {% endblock %}
-
-{% include "footer.html" %}
