@@ -39,6 +39,8 @@ urlpatterns = [
     path('event/',views.event , name='event'),
     path('event-detail/',views.eventdetail , name='eventdetail'),
     path('single-post/',views.singlepost , name='singlepost'),
+    path('shop/',views.shop, name='shop'),
+    path('single-product/',views.singleproduct , name='singleproduct'),
     
 
 ]

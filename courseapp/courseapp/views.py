@@ -61,3 +61,9 @@ def eventdetail(request):
 
 def singlepost(request):
     return render(request, 'singlepost.html')
+
+def shop(request):
+    return render(request, 'shop.html')
+
+def singleproduct(request):
+    return render(request, 'singleproduct.html')
