@@ -1,7 +1,58 @@
-{% include "header.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4 pt-5">Your Cart</h2>
 
+    {% if cart_items %}
+      <div class="row">
+        <div class="col-lg-8">
+          {% for item in cart_items %}
+          <div class="card mb-4">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-4">
+                <img src="{{ item.course.image.url }}" class="img-fluid rounded-start" alt="{{ item.course.title }}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.course.title }}</h5>
+                  <p class="card-text mb-1">Instructor: {{ item.course.instructor }}</p>
+                  <p class="card-text mb-1">Level: {{ item.course.level }}</p>
+                  <p class="card-text text-primary fw-bold">₹{{ item.course.price }}</p>
+                  <form action="{% url 'remove_from_cart' item.course.id %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-danger mt-2">Remove</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card p-4 shadow-sm">
+            <h4 class="mb-3">Cart Summary</h4>
+            <ul class="list-group mb-3">
+              {% for item in cart_items %}
+              <li class="list-group-item d-flex justify-content-between">
+                <span>{{ item.course.title|truncatechars:20 }}</span>
+                <strong>₹{{ item.course.price }}</strong>
+              </li>
+              {% endfor %}
+            </ul>
+            <h5>Total: ₹{{ total_price }}</h5>
+            <a href="{% url 'checkout' %}" class="btn btn-primary w-100 mt-3">Proceed to Checkout</a>
+          </div>
+        </div>
+      </div>
+
+    {% else %}
+      <p>Your cart is empty. <a href="{% url 'homepage' %}">Browse courses</a> to add some.</p>
+    {% endif %}
+
+  </div>
+</section>
 {% endblock %}
-
-{% include "footer.html" %}

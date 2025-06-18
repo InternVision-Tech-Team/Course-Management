@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <!-- Product Image -->
+      <div class="col-md-6">
+        <img src="{% static 'images/python.png' %}" alt="Product Image" class="img-fluid rounded shadow">
+      </div>
+
+      <!-- Product Details -->
+      <div class="col-md-6">
+        <h2 class="fw-bold pt-5">Master Python Programming</h2>
+        <p class="text-muted">Category: Programming</p>
+        <h4 class="text-success fw-bold mt-3 mb-3">₹999</h4>
+
+        <p class="text-muted">
+          Learn Python from scratch with hands-on projects and real-world examples. 
+          This course is perfect for beginners and professionals looking to sharpen their skills.
+        </p>
+
+        <ul class="list-unstyled">
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Lifetime Access</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Certificate on Completion</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> 20+ Hours of Content</li>
+        </ul>
+
+        <div class="mt-4 d-flex gap-2">
+          <a href="{% url 'cart' %}?add=1" class="btn btn-success px-4">Add to Cart</a>
+          <a href="#" class="btn btn-outline-dark">Back to Shop</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description Section -->
+    <div class="mt-5">
+      <h4 class="fw-bold">Course Description</h4>
+      <p class="text-muted">
+        This Python course covers everything from basic syntax and data types to object-oriented programming and advanced topics like web development and automation. You'll build real-world projects and gain confidence in writing clean, efficient code.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

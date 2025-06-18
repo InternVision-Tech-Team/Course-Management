@@ -7,10 +7,13 @@ def homepage(request):
     return render(request, 'index.html')
 
 def aboutus(request):
-    return render(request, 'base.html')
+    return render(request, 'aboutus.html')
 
 def course(request):
     return render(request, 'course.html')
+
+def coursedetail(request):
+    return render(request, 'coursedetail.html')
 
 def account(request):
     return render(request, 'account.html')
@@ -49,3 +52,18 @@ def blog(request):
 
 def thankyou(request):
     return render(request, 'thankyou.html')
+
+def event(request):
+    return render(request, 'event.html')
+
+def eventdetail(request):
+    return render(request, 'eventdetail.html')
+
+def singlepost(request):
+    return render(request, 'singlepost.html')
+
+def shop(request):
+    return render(request, 'shop.html')
+
+def singleproduct(request):
+    return render(request, 'singleproduct.html')

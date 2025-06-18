@@ -1,7 +1,51 @@
-{% include "header.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5 pt-5">
+      <h2 class="fw-bold">Meet Our Instructors</h2>
+      <p class="text-muted">Our expert instructors are passionate about teaching and sharing real-world skills with learners across the globe.</p>
+    </div>
 
+    <div class="row g-4">
+      {% comment %} Example Static Data (you can make this dynamic from views later) {% endcomment %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="{% static 'images/reviewer1.png' %}" class="card-img-top" alt="Instructor 1">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold mb-1">Dr. Priya Sharma</h5>
+            <p class="text-muted small">Data Science Expert</p>
+            <p class="card-text">PhD in Machine Learning with 8+ years of experience in AI and data analytics. Published author and speaker.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="{% static 'images/reviewer2.png' %}" class="card-img-top" alt="Instructor 2">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold mb-1">Mr. Rahul Verma</h5>
+            <p class="text-muted small">Full Stack Developer</p>
+            <p class="card-text">Worked with top MNCs and startups. Expert in Django, React, and cloud deployments.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="{% static 'images/reviewer3.png' %}" class="card-img-top" alt="Instructor 3">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold mb-1">Ms. Anjali Desai</h5>
+            <p class="text-muted small">UI/UX Designer</p>
+            <p class="card-text">Creative designer with 5+ years experience. Teaches user-centric design and Figma workflows.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more instructor cards below or loop dynamically -->
+    </div>
+  </div>
+</section>
 {% endblock %}
-
-{% include "footer.html" %}

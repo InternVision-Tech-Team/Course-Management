@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center pt-5">
+      <div class="col-lg-10">
+        <!-- Blog Title -->
+        <h1 class="fw-bold mb-3">How to Become a Full Stack Developer in 2025</h1>
+        <p class="text-muted mb-4">By <strong>Anjali Mehra</strong> • Published on <em>June 15, 2025</em></p>
+
+        <!-- Blog Banner Image -->
+        <img src="{% static 'images/reviewer3.png' %}" alt="Blog Banner" class="img-fluid rounded mb-4 shadow-sm">
+
+        <!-- Blog Content -->
+        <div class="blog-content fs-5 text-muted">
+          <p>Becoming a full stack developer requires mastering both frontend and backend technologies. It involves building web applications from the ground up, ensuring they’re both functional and visually appealing.</p>
+
+          <h4 class="fw-semibold mt-4">Frontend Technologies</h4>
+          <p>You should be familiar with HTML, CSS, JavaScript, and frameworks like React or Vue. These tools help create responsive and interactive user interfaces.</p>
+
+          <h4 class="fw-semibold mt-4">Backend Technologies</h4>
+          <p>Server-side logic, databases, and APIs are handled with tools like Django, Flask, Node.js, and Express. Understanding database management with MySQL or MongoDB is essential.</p>
+
+          <blockquote class="blockquote border-start border-4 ps-3 my-4 text-dark">
+            <p class="mb-0">“A full stack developer is a one-person army in modern web development.”</p>
+          </blockquote>
+
+          <p>In 2025, cloud services, DevOps practices, and security basics are also key parts of a full stack developer’s toolkit.</p>
+        </div>
+
+        <!-- Author Info -->
+        <div class="d-flex align-items-center mt-5 pt-4 border-top">
+          <img src="{% static 'images/reviewer3.png' %}" class="rounded-circle me-3" width="60" height="60" alt="Author">
+          <div>
+            <h6 class="fw-bold mb-1">Anjali Mehra</h6>
+            <p class="mb-0 text-muted">An experienced developer and tech blogger passionate about coding and education.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

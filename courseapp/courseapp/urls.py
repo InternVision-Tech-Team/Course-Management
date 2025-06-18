@@ -21,9 +21,8 @@ from courseapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
-    #PAGES
-    path('about-us/', views.aboutus, name='about-us'),
-    path('course/', views.course, name='course'), #dynamic URL for course detail
+    path('about-us/', views.aboutus, name='aboutus'),
+    path('course/', views.course, name='course'),
     path('account/', views.account, name='account'),
     path('contact-us/',views.contact, name='contact'),
     path('faqs/', views.faqs, name='faqs'),
@@ -31,10 +30,16 @@ urlpatterns = [
     path('cart/',views.cart, name='cart'),
     path('price-plan/',views.priceplan, name='priceplan'),
     path('wishlist/', views.wishlist, name='wishlist'),
-    #COURSES
     path('course/',views.course, name='course'),  
     path('blog/',views.blog , name='blog'),
     path('thankyou/', views.thankyou, name="thankyou"),
+    path('course-detail/',views.coursedetail , name='coursedetail'),
+    path('event/',views.event , name='event'),
+    path('event-detail/',views.eventdetail , name='eventdetail'),
+    path('single-post/',views.singlepost , name='singlepost'),
+    path('shop/',views.shop, name='shop'),
+    path('single-product/',views.singleproduct , name='singleproduct'),
+    
 
 ]
 
