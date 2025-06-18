@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from.forms import UserForm
+from django.contrib import messages
+from .models import Contact  
 
 def homepage(request):
     return render(request, 'index.html')
@@ -8,8 +9,8 @@ def homepage(request):
 def aboutus(request):
     return render(request, 'base.html')
 
-def course_detail(request, course_id):
-    return HttpResponse(f"Course ID: {course_id}")
+def course(request):
+    return render(request, 'course.html')
 
 def account(request):
     return render(request, 'account.html')
@@ -18,7 +19,18 @@ def faqs(request):
     return render(request, 'faqs.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        # ✅ Save to database using the correct model name
+        Contact.objects.create(name=name, email=email, message=message)
+
+        messages.success(request, "Thanks for contacting us!")
+        return redirect("thankyou")
+
+    return render(request, "contact.html")
 
 def instructors(request):
     return render(request, 'instructors.html')
@@ -32,30 +44,8 @@ def priceplan(request):
 def wishlist(request):
     return render(request, 'wishlist.html')
 
-def course(request):
-    return render(request, 'course.html')
+def blog(request):
+    return render(request, 'blog.html')
 
-def userform(request):
-    data = {'form':fn}
-    fn= UserForm()
-    if request.method == 'POST':
-        try:
-            n1 = int(request.POST.get('username', 0))
-            n2 = int(request.POST.get('password', 0))
-            ans = n1 + n2
-            data = {
-                'form':fn,
-                'n1': n1,
-                'n2': n2,
-                'output': ans
-            }
-            return HttpResponseRedirect('/about-us/')
-        
-        except ValueError:
-
-            data['error'] = "Please enter valid numbers for username and password."
-
-    return render(request, 'userform.html', data)
-
-def submitform(request):
-    return HttpResponse(request )
+def thankyou(request):
+    return render(request, 'thankyou.html')
