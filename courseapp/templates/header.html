@@ -191,20 +191,22 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link mx-2 dropdown-toggle align-items-center" role="button" id="courses"
-                data-bs-toggle="dropdown" aria-expanded="false">Courses</a>
-              <ul class="dropdown-menu" aria-labelledby="courses">
-                <li><a href="/course" class="dropdown-item">Course</a></li>
-                <li><a href="course-detail/" class="dropdown-item">Courses Detail</a></li>
-              </ul>
-            </li>
+          <a class="nav-link mx-2 dropdown-toggle align-items-center" href="#" role="button" id="courses"
+            data-bs-toggle="dropdown" aria-expanded="false"> Courses                           
+            </a>
+           <ul class="dropdown-menu" aria-labelledby="courses">
+             <li><a href="{% url 'course' %}" class="dropdown-item">Course</a></li>
+             <li><a href="{% url 'coursedetail' %}" class="dropdown-item">Course Detail</a></li>
+           </ul>
+         </li>
+
 
             <li class="nav-item dropdown">
               <a class="nav-link mx-2 dropdown-toggle align-items-center" role="button" id="events"
                 data-bs-toggle="dropdown" aria-expanded="false">events</a>
               <ul class="dropdown-menu" aria-labelledby="courses">
-                <li><a href="event/" class="dropdown-item">event</a></li>
-                <li><a href="event-detail/" class="dropdown-item">event details</a></li>
+                <li><a href="{% url 'event' %}" class="dropdown-item">event</a></li>
+                <li><a href="{% url 'eventdetail' %}" class="dropdown-item">event details</a></li>
               </ul>
             </li>
 
@@ -212,8 +214,8 @@
               <a class="nav-link mx-2 dropdown-toggle align-items-center" role="button" id="blog"
                 data-bs-toggle="dropdown" aria-expanded="false">blog</a>
               <ul class="dropdown-menu" aria-labelledby="blog">
-                <li><a href="blog/" class="dropdown-item">blog</a></li>
-                <li><a href="single-post/" class="dropdown-item">single post</a></li>
+                <li><a href="{% url 'blog' %}" class="dropdown-item">blog</a></li>
+                <li><a href="{% url 'singlepost' %}" class="dropdown-item">single post</a></li>
               </ul>
             </li>
 
@@ -221,8 +223,8 @@
               <a class="nav-link mx-2 dropdown-toggle align-items-center" role="button" id="shop"
                 data-bs-toggle="dropdown" aria-expanded="false">shop</a>
               <ul class="dropdown-menu" aria-labelledby="shop">
-                <li><a href="shop/" class="dropdown-item">Shop</a></li>
-                <li><a href="single-product/" class="dropdown-item">Single Product</a></li>
+                <li><a href="{% url 'shop' %}" class="dropdown-item">Shop</a></li>
+                <li><a href="{% url 'singleproduct' %}" class="dropdown-item">Single Product</a></li>
               </ul>
             </li>
 

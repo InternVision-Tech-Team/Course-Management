@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from courseapp import views
+from django.urls import path, include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,13 +31,22 @@ urlpatterns = [
     path('instructors/', views.instructors, name='instructors'),
     path('cart/',views.cart, name='cart'),
     path('price-plan/',views.priceplan, name='priceplan'),
-    path('wishlist/', views.wishlist, name='wishlist'),
-    path('course/',views.course, name='course'),  
+    path('wishlist/', views.wishlist, name='wishlist'), 
+
+    path('course/', include([
+    path('', views.course, name='course'),
+    path('course-detail/', views.course, name='coursedetail'), 
+    ])),
+    path('course-detail/', views.course, name='coursedetail'),
+
+    path('event/', include([
+    path('', views.event, name='event'),
+    path('event-detail/',views.event, name='eventdetail'),
+    ])),
+    path('event-detail/',views.event, name='eventdetail'),
+
     path('blog/',views.blog , name='blog'),
     path('thankyou/', views.thankyou, name="thankyou"),
-    path('course-detail/',views.coursedetail , name='coursedetail'),
-    path('event/',views.event , name='event'),
-    path('event-detail/',views.eventdetail , name='eventdetail'),
     path('single-post/',views.singlepost , name='singlepost'),
     path('shop/',views.shop, name='shop'),
     path('single-product/',views.singleproduct , name='singleproduct'),
