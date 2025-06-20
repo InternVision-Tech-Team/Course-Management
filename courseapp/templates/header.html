@@ -179,14 +179,14 @@
               <a class="nav-link mx-2 dropdown-toggle align-items-center" role="button" id="pages"
                 data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
               <ul class="dropdown-menu" aria-labelledby="pages">
-                <li><a href="/about-us" class="dropdown-item">About Us</a></li>
-                <li><a href="/instructors" class="dropdown-item">Instructors</a></li>
-                <li><a href="/cart" class="dropdown-item">Cart</a></li>
-                <li><a href="/wishlist" class="dropdown-item">Wishlist</a></li>
-                <li><a href="/price-plan" class="dropdown-item">Price Plan</a></li>
-                <li><a href="/contact-us" class="dropdown-item">Contact</a></li>
-                <li><a href="/faqs" class="dropdown-item">FAQs</a></li>
-                <li><a href="/account" class="dropdown-item">Account </a></li>
+                <li><a href="{% url 'aboutus' %}" class="dropdown-item">About Us</a></li>
+                <li><a href="{% url 'instructors' %}" class="dropdown-item">Instructors</a></li>
+                <li><a href="{% url 'cart' %}" class="dropdown-item">Cart</a></li>
+                <li><a href="{% url 'wishlist' %}" class="dropdown-item">Wishlist</a></li>
+                <li><a href="{% url 'priceplan' %}" class="dropdown-item">Price Plan</a></li>
+                <li><a href="{% url 'contact' %}" class="dropdown-item">Contact</a></li>
+                <li><a href="{% url 'faqs' %}" class="dropdown-item">FAQs</a></li>
+                <li><a href="{% url 'account' %}" class="dropdown-item">Account </a></li>
               </ul>
             </li>
 
@@ -229,7 +229,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="contact-us/" class="nav-link mx-2">contact</a>
+              <a href="{% url 'contact' %}" class="nav-link mx-2">contact</a>
             </li>
             <li class="nav-item">
               <a href="https://templatesjungle.gumroad.com/l/worldcourse-free-online-course-bootstrap-5-html-website-template"
