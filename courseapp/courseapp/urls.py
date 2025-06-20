@@ -23,33 +23,49 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
-    path('about-us/', views.aboutus, name='aboutus'),
-    path('course/', views.course, name='course'),
-    path('account/', views.account, name='account'),
     path('contact-us/',views.contact, name='contact'),
-    path('faqs/', views.faqs, name='faqs'),
-    path('instructors/', views.instructors, name='instructors'),
-    path('cart/',views.cart, name='cart'),
-    path('price-plan/',views.priceplan, name='priceplan'),
-    path('wishlist/', views.wishlist, name='wishlist'), 
+    path('thankyou/', views.thankyou, name="thankyou"),
 
+    #PAGES TAB URL
+    path('about-us/',include([
+    path('', views.aboutus, name='aboutus'),
+    path('instructors/',views.aboutus, name='instructors'),
+    path('cart/',views.aboutus, name='cart'),
+    path('wishlist/',views.aboutus, name='wishlist'),
+    path('price-plan/',views.aboutus, name='priceplan'),
+    path('contact/',views.aboutus, name='contact'),
+    path('faqs/',views.aboutus, name='faqs'),
+    path('account/',views.aboutus, name='account'),
+    ])),
+
+    #COURSE TAB URL
     path('course/', include([
     path('', views.course, name='course'),
     path('course-detail/', views.course, name='coursedetail'), 
     ])),
-    path('course-detail/', views.course, name='coursedetail'),
 
+    #EVENT TAB URL
     path('event/', include([
     path('', views.event, name='event'),
     path('event-detail/',views.event, name='eventdetail'),
     ])),
-    path('event-detail/',views.event, name='eventdetail'),
 
-    path('blog/',views.blog , name='blog'),
-    path('thankyou/', views.thankyou, name="thankyou"),
-    path('single-post/',views.singlepost , name='singlepost'),
-    path('shop/',views.shop, name='shop'),
-    path('single-product/',views.singleproduct , name='singleproduct'),
+    #BLOG TAB URL
+    path('blog/', include([
+    path('',views.event, name='blog'),
+    path('single-post/',views.blog, name='singlepost'), 
+    ])),
+
+    #SHOP TAB URL
+    path('shop/',include([
+    path('',views.shop, name='shop'),
+    path('single-product/', views.shop, name='singleproduct'),
+    ])),
+
+    #CONTACT TAB URL
+    
+
+
     
 
 ]
