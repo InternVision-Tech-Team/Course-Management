@@ -2,9 +2,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Contact  
+from service.models import Service
 
 def homepage(request):
-    return render(request, 'index.html')
+    serviesData = Service.objects.all()
+    context = {
+        'serviesData': serviesData,
+    }
+    return render(request, 'index.html', context)
 
 def aboutus(request):
     return render(request, 'aboutus.html')
@@ -27,7 +32,7 @@ def contact(request):
         email = request.POST.get("email")
         message = request.POST.get("message")
 
-        # ✅ Save to database using the correct model name
+        # it save to database using the correct model name
         Contact.objects.create(name=name, email=email, message=message)
 
         messages.success(request, "Thanks for contacting us!")
