@@ -23,7 +23,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
-    path('contact-us/',views.contact, name='contact'),
+    path('contact/',views.contact, name='contactt'),
     path('thankyou/', views.thankyou, name="thankyou"),
 
     #PAGES TAB URL
