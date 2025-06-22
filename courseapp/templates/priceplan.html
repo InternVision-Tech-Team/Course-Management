@@ -1,7 +1,68 @@
-{% include "header.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
 
-{% endblock %}
+<div class="container py-5">
+  <h2 class="text-center mb-5 pt-5">Choose Your Plan</h2>
+  <div class="row">
 
-{% include "footer.html" %}
+    <!-- Free Plan -->
+    <div class="col-md-4 mb-4">
+      <div class="card text-center shadow-sm h-100">
+        <div class="card-header bg-light">
+          <h4 class="my-0">Free</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">₹0 <small class="text-muted">/month</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Access to 5 courses</li>
+            <li>Limited content</li>
+            <li>No certification</li>
+            <li>Basic support</li>
+          </ul>
+          <a href="{% url 'account' %}" class="btn btn-outline-primary">Start Free</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard Plan -->
+    <div class="col-md-4 mb-4">
+      <div class="card text-center shadow h-100 border-primary">
+        <div class="card-header bg-primary text-white">
+          <h4 class="my-0">Standard</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">₹499 <small class="text-muted">/month</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Access to 50+ courses</li>
+            <li>Course certificates</li>
+            <li>Community access</li>
+            <li>Email support</li>
+          </ul>
+          <a href="{% url 'account' %}" class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="col-md-4 mb-4">
+      <div class="card text-center shadow-sm h-100 border-dark">
+        <div class="card-header bg-dark text-white">
+          <h4 class="my-0">Premium</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">₹999 <small class="text-muted">/month</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Unlimited course access</li>
+            <li>1:1 mentorship</li>
+            <li>Career guidance</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="{% url 'account' %}" class="btn btn-dark">Go Premium</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

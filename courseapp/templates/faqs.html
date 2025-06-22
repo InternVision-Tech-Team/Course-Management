@@ -1,7 +1,68 @@
-{% include "header.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
 
-{% endblock %}
+<div class="container py-5">
+  <h2 class="text-center mb-4 pt-5">Frequently Asked Questions</h2>
 
-{% include "footer.html" %}
+  <div class="accordion" id="faqAccordion">
+
+    <!-- FAQ 1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+          What is WorldCourse and how does it work?
+        </button>
+      </h2>
+      <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          WorldCourse is an online platform offering various courses. You can enroll, watch lectures, take quizzes, and earn certificates.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+          Are all courses free?
+        </button>
+      </h2>
+      <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          We offer both free and premium courses. You can explore the <a href="{% url 'priceplan' %}">Price Plan</a> page for details.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+          How can I get a certificate?
+        </button>
+      </h2>
+      <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Certificates are provided for Standard and Premium plan users after completing the course and assessments.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+          Can I cancel my subscription anytime?
+        </button>
+      </h2>
+      <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, you can cancel your subscription anytime from your account settings.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
