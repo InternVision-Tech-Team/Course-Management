@@ -19,6 +19,9 @@ def account(request):
 
 def homepage(request):
     serviesData = Service.objects.all()
+    print(serviesData)
+    # for a in serviesData: // i can see info in termnial 
+    #     print(a.service_icon, a.service_title, a.service_des)
     context = {
         'serviesData': serviesData,
     }

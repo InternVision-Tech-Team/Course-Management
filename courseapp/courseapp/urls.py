@@ -67,10 +67,7 @@ urlpatterns = [
     ])),
 
     #CONTACT TAB URL
-    
 
-
-    
 
 ]
 
