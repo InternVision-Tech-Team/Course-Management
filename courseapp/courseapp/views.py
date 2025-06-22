@@ -33,6 +33,16 @@ def course(request):
 def coursedetail(request):
     return render(request, 'coursedetail.html')
 
+def support(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        # Optionally: Save to DB or send email
+        print(f"Support Query from {name} - {email}: {message}")
+        return render(request, 'thankyou.html')  # or redirect
+    return render(request, 'support.html')
+
 
 def faqs(request):
     return render(request, 'faqs.html')

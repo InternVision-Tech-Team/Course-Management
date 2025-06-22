@@ -24,9 +24,11 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
-    path('contact/',views.contact, name='contactt'),
+    path('contact/',views.contact, name='contactt'), #header contact
+    path('faqs/',views.faqs, name='faqss'), #footer fads
     path('thankyou/', views.thankyou, name="thankyou"),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
+    path('support/', views.support, name='support'),
 
     #PAGES TAB URL
     path('about-us/',include([
