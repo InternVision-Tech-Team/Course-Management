@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold pt-5">Need Help? We’re Here for You</h2>
+    <p class="text-muted">Explore FAQs, contact support, or submit your query directly below.</p>
+  </div>
+
+  <div class="row">
+    <!-- FAQ Suggestions -->
+    <div class="col-md-6">
+      <h4>Frequently Asked Questions</h4>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>💳 How do I make a payment?</strong><br>
+          You can pay through UPI, credit/debit card, or net banking from the checkout page.
+        </li>
+        <li class="list-group-item">
+          <strong>📚 Where can I access my enrolled courses?</strong><br>
+          All enrolled courses are available under your dashboard → My Courses.
+        </li>
+        <li class="list-group-item">
+          <strong>📨 I didn’t receive confirmation email?</strong><br>
+          Please check your spam folder. If still not received, reach out via the contact form.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contact Support Form -->
+    <div class="col-md-6">
+      <h4>Contact Support</h4>
+      <form method="POST" action="{% url 'support' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" name="name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Your Message</label>
+          <textarea name="message" class="form-control" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Submit Query</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="mt-5 text-center">
+    <h5 class="text-secondary">Or reach out to us via:</h5>
+    <p>Email: <a href="mailto:support@coursemanagement.com">support@coursemanagement.com</a></p>
+    <p>Phone: <strong>+91 98765 43210</strong></p>
+  </div>
+</div>
+{% endblock %}

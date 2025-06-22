@@ -3,6 +3,19 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Contact  
 from service.models import Service
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
+def custom_logout(request):
+    logout(request)
+    return redirect('homepage')  # or any page you want
+
+
+@login_required
+def account(request):
+    enrolled_courses = request.user.course_set.all() if hasattr(request.user, 'course_set') else []
+    return render(request, 'account.html', {'enrolled_courses': enrolled_courses})
+
 
 def homepage(request):
     serviesData = Service.objects.all()
@@ -20,8 +33,16 @@ def course(request):
 def coursedetail(request):
     return render(request, 'coursedetail.html')
 
-def account(request):
-    return render(request, 'account.html')
+def support(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        # Optionally: Save to DB or send email
+        print(f"Support Query from {name} - {email}: {message}")
+        return render(request, 'thankyou.html')  # or redirect
+    return render(request, 'support.html')
+
 
 def faqs(request):
     return render(request, 'faqs.html')

@@ -18,48 +18,52 @@ from django.contrib import admin
 from django.urls import path
 from courseapp import views
 from django.urls import path, include
+from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
-    path('contact/',views.contact, name='contactt'),
+    path('contact/',views.contact, name='contactt'), #header contact
+    path('faqs/',views.faqs, name='faqss'), #footer fads
     path('thankyou/', views.thankyou, name="thankyou"),
+    path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
+    path('support/', views.support, name='support'),
 
     #PAGES TAB URL
     path('about-us/',include([
     path('', views.aboutus, name='aboutus'),
-    path('instructors/',views.aboutus, name='instructors'),
-    path('cart/',views.aboutus, name='cart'),
-    path('wishlist/',views.aboutus, name='wishlist'),
-    path('price-plan/',views.aboutus, name='priceplan'),
-    path('contact/',views.aboutus, name='contact'),
-    path('faqs/',views.aboutus, name='faqs'),
-    path('account/',views.aboutus, name='account'),
+    path('instructors/',views.instructors, name='instructors'),
+    path('cart/',views.cart, name='cart'),
+    path('wishlist/',views.wishlist, name='wishlist'),
+    path('price-plan/',views.priceplan, name='priceplan'),
+    path('contact/',views.contact, name='contact'),
+    path('faqs/',views.faqs, name='faqs'),
+    path('account/',views.account, name='account'),
     ])),
 
     #COURSE TAB URL
     path('course/', include([
     path('', views.course, name='course'),
-    path('course-detail/', views.course, name='coursedetail'), 
+    path('course-detail/', views.coursedetail, name='coursedetail'), 
     ])),
 
     #EVENT TAB URL
     path('event/', include([
     path('', views.event, name='event'),
-    path('event-detail/',views.event, name='eventdetail'),
+    path('event-detail/',views.eventdetail, name='eventdetail'),
     ])),
 
     #BLOG TAB URL
     path('blog/', include([
-    path('',views.event, name='blog'),
-    path('single-post/',views.blog, name='singlepost'), 
+    path('',views.blog, name='blog'),
+    path('single-post/',views.singlepost, name='singlepost'), 
     ])),
 
     #SHOP TAB URL
     path('shop/',include([
     path('',views.shop, name='shop'),
-    path('single-product/', views.shop, name='singleproduct'),
+    path('single-product/', views.singleproduct, name='singleproduct'),
     ])),
 
     #CONTACT TAB URL

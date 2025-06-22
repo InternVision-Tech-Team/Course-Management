@@ -1,76 +1,55 @@
-{% include "header.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-
-<div class="container mt-5 pt-5">
-    <div class="row">
-        <div class="col-md-8">
-            <h2 class="mb-3">{{ course.title }}</h2>
-            <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-            <p><strong>Duration:</strong> {{ course.duration }}</p>
-            <p><strong>Level:</strong> {{ course.level }}</p>
-            <p><strong>Price:</strong> ₹{{ course.price }}</p>
-            <hr>
-            <h5>Course Description</h5>
-            <p>{{ course.description }}</p>
-        </div>
-
-        <div class="col-md-8">
-            <h2 class="mb-3">{{ course.title }}</h2>
-            <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-            <p><strong>Duration:</strong> {{ course.duration }}</p>
-            <p><strong>Level:</strong> {{ course.level }}</p>
-            <p><strong>Price:</strong> ₹{{ course.price }}</p>
-            <hr>
-            <h5>Course Description</h5>
-            <p>{{ course.description }}</p>
-        </div>
-
-        <div class="col-md-8">
-            <h2 class="mb-3">{{ course.title }}</h2>
-            <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-            <p><strong>Duration:</strong> {{ course.duration }}</p>
-            <p><strong>Level:</strong> {{ course.level }}</p>
-            <p><strong>Price:</strong> ₹{{ course.price }}</p>
-            <hr>
-            <h5>Course Description</h5>
-            <p>{{ course.description }}</p>
-        </div>
-
-        <div class="col-md-8">
-            <h2 class="mb-3">{{ course.title }}</h2>
-            <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-            <p><strong>Duration:</strong> {{ course.duration }}</p>
-            <p><strong>Level:</strong> {{ course.level }}</p>
-            <p><strong>Price:</strong> ₹{{ course.price }}</p>
-            <hr>
-            <h5>Course Description</h5>
-            <p>{{ course.description }}</p>
-        </div>
-
-
-        <div class="col-md-7">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Enroll Now</h5>
-                    <form method="post" action="">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" class="form-control" name="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" class="form-control" name="email" required>
-                        </div>
-                        <button type="submit" class="btn btn-success">Enroll</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class="container mt-5">
+  <div class="row">
+    <!-- Event Image -->
+    <div class="col-md-6 pt-5">
+      <img src="{% static 'images/billboard-img.jpg' %}" class="img-fluid rounded shadow" alt="Event Banner">
     </div>
+
+    <!-- Event Info -->
+    <div class="col-md-6">
+      <h2 class="mb-3 pt-5">TechSpark 2025: AI in Education</h2>
+      <p><strong>Date:</strong> July 20, 2025</p>
+      <p><strong>Time:</strong> 10:00 AM – 4:00 PM</p>
+      <p><strong>Location:</strong> Virtual (Zoom)</p>
+      <p class="mt-4">
+        Discover how Artificial Intelligence is transforming the educational landscape in this immersive one-day seminar featuring industry leaders, educators, and researchers.
+      </p>
+      <a href="{% url 'event'%}" class="btn btn-success mt-3">Register Now</a>
+    </div>
+  </div>
+
+  <!-- Event Schedule -->
+  <div class="mt-5">
+    <h4>Event Schedule</h4>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>10:00 AM:</strong> Welcome & Opening Remarks</li>
+      <li class="list-group-item"><strong>11:00 AM:</strong> AI Trends in EdTech</li>
+      <li class="list-group-item"><strong>01:00 PM:</strong> Live Panel Discussion</li>
+      <li class="list-group-item"><strong>02:30 PM:</strong> Workshops & Networking</li>
+    </ul>
+  </div>
+
+  <!-- Speakers -->
+  <div class="mt-5">
+    <h4>Featured Speakers</h4>
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="{% static 'images/speaker1.jpg' %}" class="rounded-circle mb-2" width="100" alt="Speaker 1">
+        <p><strong>Dr. Ananya Roy</strong><br>AI Researcher, Google</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="{% static 'images/speaker2.jpg' %}" class="rounded-circle mb-2" width="100" alt="Speaker 2">
+        <p><strong>Mr. Rakesh Mehta</strong><br>CEO, LearnTech</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="{% static 'images/speaker3.jpg' %}" class="rounded-circle mb-2" width="100" alt="Speaker 3">
+        <p><strong>Prof. Neha Kapoor</strong><br>AI Educator, IIT Bombay</p>
+      </div>
+    </div>
+  </div>
 </div>
-
 {% endblock %}
-
-{% include "footer.html" %}
