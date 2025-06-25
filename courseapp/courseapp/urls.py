@@ -35,6 +35,6 @@ urlpatterns = [
     path('course/',views.course, name='course'),  
     path('userform/', views.userform, name='userform'),
     path('submitform/',views.submitform,name='submitform'),
-
+    path('course-detail/',views.coursedetail,name='coursedetail'),
 ]
 

@@ -35,6 +35,10 @@ def wishlist(request):
 def course(request):
     return render(request, 'course.html')
 
+def coursedetail(request):
+    return render(request,'coursedetail.html')
+
+
 def userform(request):
     data = {'form':fn}
     fn= UserForm()
