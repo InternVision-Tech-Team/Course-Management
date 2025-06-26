@@ -5,6 +5,8 @@ from .models import Contact
 from service.models import Service
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from .forms import ContactForm
+
 
 def custom_logout(request):
     logout(request)
