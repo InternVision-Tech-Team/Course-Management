@@ -103,3 +103,6 @@ def shop(request):
 def singleproduct(request):
     return render(request, 'singleproduct.html')
 
+# def achivement(request):
+#     return render(request, 'achivement.html')
+
