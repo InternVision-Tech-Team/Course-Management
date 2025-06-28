@@ -12,7 +12,7 @@ from .models import Certificate
 
 def custom_logout(request):
     logout(request)
-    return redirect('homepage')  # or any page you want
+    return redirect('homepage')  
 
 
 @login_required
@@ -32,6 +32,8 @@ def homepage(request):
 
     return render(request, 'index.html')
 
+
+
 def aboutus(request):
     return render(request, 'aboutus.html')
 
@@ -46,8 +48,6 @@ def support(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        # Optionally: Save to DB or send email
-        print(f"Support Query from {name} - {email}: {message}")
         return render(request, 'thankyou.html')  # or redirect
     return render(request, 'support.html')
 
@@ -61,13 +61,14 @@ def contact(request):
         email = request.POST.get("email")
         message = request.POST.get("message")
 
-        # it save to database using the correct model name
         Contact.objects.create(name=name, email=email, message=message)
 
         messages.success(request, "Thanks for contacting us!")
         return redirect("thankyou")
 
     return render(request, "contact.html")
+
+
 
 def instructors(request):
     return render(request, 'instructors.html')
