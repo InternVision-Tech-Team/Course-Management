@@ -6,6 +6,7 @@
     <h2>Contact Us</h2>
     <form method="post" action="">
         {% csrf_token %}
+         {{ form.as_p }}
 
         <div class="mb-3">
             <label for="name" class="form-label">Your Name</label>
@@ -21,7 +22,9 @@
             <label for="message" class="form-label">Your Message</label>
             <textarea class="form-control" name="message" id="message" rows="4" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+   
+          <button type="submit">Send</button>
+
     </form>
 </div>
 

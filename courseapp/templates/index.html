@@ -131,10 +131,12 @@
               through WorldCourse.</p>
           </div>
 
-          <form id="form">
+          <form id="form" method="POST" action=''>
+            {% csrf_token %}
+            {{ form.as_p }}
             <input type="text" name="email" placeholder="Write Your Name*" class="form-control w-100 mb-4">
             <input type="email" name="email" placeholder="Write Your Email Address*" class="form-control w-100 mb-4">
-            <button class="btn btn-primary px-5 py-3 mt-2"> Get Started now</button>
+            <button  class="btn btn-primary px-5 py-3 mt-2" type='submit' > Get Started now</button>
           </form>
 
         </div>
