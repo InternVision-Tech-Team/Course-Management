@@ -10,6 +10,7 @@ from django.core.mail import send_mail
 from .models import Certificate
 
 
+
 def custom_logout(request):
     logout(request)
     return redirect('homepage')  
