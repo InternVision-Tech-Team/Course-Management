@@ -8,3 +8,11 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class Certificate(models.Model):
+    name=models.name = models.CharField(max_length=50)
+    email = models.EmailField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

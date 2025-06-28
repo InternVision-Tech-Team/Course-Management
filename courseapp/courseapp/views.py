@@ -5,6 +5,9 @@ from .models import Contact
 from service.models import Service
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from .forms import ContactForm
+from django.core.mail import send_mail
+from .models import Certificate
 
 
 def custom_logout(request):
@@ -19,14 +22,15 @@ def account(request):
 
 
 def homepage(request):
-    serviesData = Service.objects.all()
-    print(serviesData)
-    # for a in serviesData: // i can see info in termnial 
-    #     print(a.service_icon, a.service_title, a.service_des)
-    context = {
-        'serviesData': serviesData,
-    }
-    return render(request, 'index.html', context)
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+
+        Certificate.objects.create(name=name, email=email)
+        messages.success(request,"Thank you for contacting us")
+        return redirect ("thankyou")
+
+    return render(request, 'index.html')
 
 def aboutus(request):
     return render(request, 'aboutus.html')
@@ -97,3 +101,4 @@ def shop(request):
 
 def singleproduct(request):
     return render(request, 'singleproduct.html')
+
