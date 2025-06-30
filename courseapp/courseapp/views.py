@@ -3,13 +3,37 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Contact  
 from service.models import Service
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from .forms import ContactForm
+from django.core.mail import send_mail
+from .models import Certificate
+
+
+
+def custom_logout(request):
+    logout(request)
+    return redirect('homepage')  
+
+
+@login_required
+def account(request):
+    enrolled_courses = request.user.course_set.all() if hasattr(request.user, 'course_set') else []
+    return render(request, 'account.html', {'enrolled_courses': enrolled_courses})
+
 
 def homepage(request):
-    serviesData = Service.objects.all()
-    context = {
-        'serviesData': serviesData,
-    }
-    return render(request, 'index.html', context)
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+
+        Certificate.objects.create(name=name, email=email)
+        messages.success(request,"Thank you for contacting us")
+        return redirect ("thankyou")
+
+    return render(request, 'index.html')
+
+
 
 def aboutus(request):
     return render(request, 'aboutus.html')
@@ -20,8 +44,14 @@ def course(request):
 def coursedetail(request):
     return render(request, 'coursedetail.html')
 
-def account(request):
-    return render(request, 'account.html')
+def support(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        return render(request, 'thankyou.html')  # or redirect
+    return render(request, 'support.html')
+
 
 def faqs(request):
     return render(request, 'faqs.html')
@@ -32,13 +62,14 @@ def contact(request):
         email = request.POST.get("email")
         message = request.POST.get("message")
 
-        # it save to database using the correct model name
         Contact.objects.create(name=name, email=email, message=message)
 
         messages.success(request, "Thanks for contacting us!")
         return redirect("thankyou")
 
     return render(request, "contact.html")
+
+
 
 def instructors(request):
     return render(request, 'instructors.html')
@@ -72,3 +103,7 @@ def shop(request):
 
 def singleproduct(request):
     return render(request, 'singleproduct.html')
+
+# def achivement(request):
+#     return render(request, 'achivement.html')
+
