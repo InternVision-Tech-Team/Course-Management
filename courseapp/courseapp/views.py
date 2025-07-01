@@ -10,7 +10,6 @@ from django.core.mail import send_mail
 from .models import Certificate
 
 
-
 def custom_logout(request):
     logout(request)
     return redirect('homepage')  
@@ -49,7 +48,7 @@ def support(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        return render(request, 'thankyou.html')  # or redirect
+        return render(request, 'thankyou.html')  
     return render(request, 'support.html')
 
 
@@ -103,7 +102,3 @@ def shop(request):
 
 def singleproduct(request):
     return render(request, 'singleproduct.html')
-
-# def achivement(request):
-#     return render(request, 'achivement.html')
-
