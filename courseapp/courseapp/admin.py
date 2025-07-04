@@ -3,3 +3,4 @@ from .models import Contact,Certificate
 
 admin.site.register(Contact)
 admin.site.register(Certificate)
+
