@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lc1hw3^n@fni*3ly9&!7@5qgry2eb&z=51f5$c2!1##se7sl9e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,13 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courseapp',
     'service', 
-    'django.contrib.sites',      # Required for django-allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
-    # Google provider
-    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -133,17 +126,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
-
-# Redirect after login/logout
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-
-# Optional but recommended
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
