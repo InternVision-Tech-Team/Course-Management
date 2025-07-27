@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 col-lg-3 offset-md-2 padding-large ps-lg-0 pe-lg-5">
-          <h2 class="display-2 fw-semibold"> {{output}} Great Online Platform</h2>
+          <h2 class="display-2 fw-semibold"> Great Online Platform</h2>
           <p class="secondary-font my-4 pb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
             fugit at quia
             tenetur expedita, consequuntur aspernatur explicabo earum odio.</p>
@@ -134,9 +134,7 @@
               through WorldCourse.</p>
           </div>
 
-          <form id="form" method="POST" action=''>
-            {% csrf_token %}
-            {{ form.as_p }}
+          <form id="form"  action=''>
             <input type="text" name="email" placeholder="Write Your Name*" class="form-control w-100 mb-4">
             <input type="email" name="email" placeholder="Write Your Email Address*" class="form-control w-100 mb-4">
             <button  class="btn btn-primary px-5 py-3 mt-2" type='submit' > Get Started now</button>

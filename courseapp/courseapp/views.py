@@ -1,38 +1,10 @@
-from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from .models import Contact  
-from service.models import Service
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from .forms import ContactForm
-from django.core.mail import send_mail
-from .models import Certificate
 
-
-def custom_logout(request):
-    logout(request)
-    return redirect('homepage')  
-
-
-@login_required
 def account(request):
-    enrolled_courses = request.user.course_set.all() if hasattr(request.user, 'course_set') else []
-    return render(request, 'account.html', {'enrolled_courses': enrolled_courses})
-
+    return render(request, 'account.html')
 
 def homepage(request):
-    if request.method == 'POST':
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-
-        Certificate.objects.create(name=name, email=email)
-        messages.success(request,"Thank you for contacting us")
-        return redirect ("thankyou")
-
     return render(request, 'index.html')
-
-
 
 def aboutus(request):
     return render(request, 'aboutus.html')
@@ -44,31 +16,13 @@ def coursedetail(request):
     return render(request, 'coursedetail.html')
 
 def support(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        return render(request, 'thankyou.html')  
     return render(request, 'support.html')
-
 
 def faqs(request):
     return render(request, 'faqs.html')
 
 def contact(request):
-    if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        message = request.POST.get("message")
-
-        Contact.objects.create(name=name, email=email, message=message)
-
-        messages.success(request, "Thanks for contacting us!")
-        return redirect("thankyou")
-
     return render(request, "contact.html")
-
-
 
 def instructors(request):
     return render(request, 'instructors.html')
